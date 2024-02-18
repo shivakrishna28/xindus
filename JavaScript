@@ -1,0 +1,49 @@
+
+    document.addEventListener("DOMContentLoaded", function() {
+        // Get registration and login forms
+        const registrationForm = document.getElementById("registrationForm");
+        const loginForm = document.getElementById("loginForm");
+
+        // Add event listener for registration form submission
+        registrationForm.addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get username and password values
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Perform client-side validation (you should also do server-side validation)
+            let valid = true;
+            if (username.length < 3) {
+                document.getElementById("usernameError").innerText = "Username must be at least 3 characters";
+                valid = false;
+            } else {
+                document.getElementById("usernameError").innerText = "";
+            }
+            if (password.length < 6) {
+                document.getElementById("passwordError").innerText = "Password must be at least 6 characters";
+                valid = false;
+            } else {
+                document.getElementById("passwordError").innerText = "";
+            }
+
+            if (valid) {
+                // Perform registration (you should send data to the server for registration)
+                console.log("Username:", username);
+                console.log("Password:", password);
+            }
+        });
+
+        // Add event listener for login form submission
+        loginForm.addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get username and password values
+            const loginUsername = document.getElementById("loginUsername").value;
+            const loginPassword = document.getElementById("loginPassword").value;
+
+            // Perform login (you should send data to the server for authentication)
+            console.log("Login Username:", loginUsername);
+            console.log("Login Password:", loginPassword);
+        });
+    });
